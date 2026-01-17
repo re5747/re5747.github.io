@@ -1,14 +1,45 @@
 ---
 layout: default
-title: Home
+title: SAELI. | Japanese tea & wabi-sabi
 ---
 
-<p>Welcome to SAELI.</p>
+<section class="hero">
+  <div class="tea-clouds"></div>
 
-<ul>
-  {% for post in site.posts %}
-    <li>
-      <a href="{{ post.url }}">{{ post.title }}</a>
-    </li>
-  {% endfor %}
-</ul>
+  <div class="hero-content">
+    <!-- 仮画像（あとで差し替え） -->
+    <img src="/images/tea-people-placeholder.png" alt="People enjoying tea">
+    <h1>SAELI.</h1>
+    <p>Japanese tea & wabi-sabi in everyday life</p>
+  </div>
+</section>
+
+<section class="news">
+  <h2>News</h2>
+  <ul>
+    {% for post in site.posts limit:3 %}
+      <li>
+        <a href="{{ post.url }}">{{ post.title }}</a>
+        <span class="date">{{ post.date | date: "%Y.%m.%d" }}</span>
+      </li>
+    {% endfor %}
+  </ul>
+</section>
+
+<section class="recommend">
+  <h2>Recommended Tea</h2>
+
+  <div class="items">
+    <div class="item">
+      <img src="/images/tea-placeholder.png" alt="Tea product">
+      <h3>Everyday Green Tea</h3>
+      <p>A simple and affordable tea you can find in Japanese supermarkets.</p>
+    </div>
+
+    <div class="item">
+      <img src="/images/tea-placeholder.png" alt="Tea product">
+      <h3>Hojicha</h3>
+      <p>Roasted tea with a gentle aroma, perfect for evenings.</p>
+    </div>
+  </div>
+</section>
