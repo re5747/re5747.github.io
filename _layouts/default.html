@@ -2,10 +2,16 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>{{ page.title }} | SAELI.</title>
+  <title>{{ page.title }}</title>
   <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
+
+  {% include header.html %}
+
   {{ content }}
+
+  {% include footer.html %}
+
 </body>
 </html>
