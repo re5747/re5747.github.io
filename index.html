@@ -1,20 +1,14 @@
 ---
 layout: default
-title: SAELI.
+title: Home
 ---
 
-<h1>SAELI.</h1>
-
-<p>Japanese tea in everyday life.</p>
-
-<h2>Articles</h2>
+<p>Welcome to SAELI.</p>
 
 <ul>
   {% for post in site.posts %}
     <li>
-      <a href="{{ post.url }}">
-        {{ post.title }}
-      </a>
+      <a href="{{ post.url }}">{{ post.title }}</a>
     </li>
   {% endfor %}
 </ul>
