@@ -9,29 +9,21 @@
 }
 
 
-/* 1. 最初に通過する巨大な雲 */
-.cloud-intro {
-  position: absolute;
-  inset: 0;
-  /* 拡張子がない場合はファイル名のみ指定 */
-  background: url("../images/Cloud/Cloud") no-repeat center; 
+/* 雲の設定（assets/images/Cloud内にある画像を指定） */
+.cloud-intro, .cloud-static {
+  /* GitHub上で拡張子がない場合は url("../images/Cloud/Cloud") にしてください */
+  background-image: url("../images/Cloud/Cloud.png"); 
+  background-repeat: no-repeat;
   background-size: contain;
-  z-index: 10;
-  width: 150%;
-  height: 150%;
-  top: -25%;
-  left: -25%;
-  animation: cloudPassThrough 3.5s forwards ease-in-out;
-  pointer-events: none;
 }
 
-/* 2. 背景に固定される雲 */
-.cloud-static {
-  position: absolute;
-  background: url("../images/Cloud/Cloud") no-repeat;
-  background-size: contain;
-  opacity: 0.6;
-  z-index: 1;
+/* 女性の画像（中央に配置） */
+.hero-content img {
+  max-width: 500px;
+  width: 90%;
+  height: auto;
+  /* ゆらゆら揺れるアニメーション */
+  animation: gentleSway 6s ease-in-out infinite;
 }
 /* (以下、top-left, bottom-right の設定はそのまま) */
 
@@ -59,16 +51,7 @@
   100% { transform: scale(5); opacity: 0; visibility: hidden; }
 }
 
-/* 3. 中央の女性（お茶の楽園・大陸） */
-.hero-content {
-  position: relative;
-  z-index: 2; /* 静止した雲より手前 */
-  text-align: center;
-  top: 50%;
-  transform: translateY(-50%);
-  /* 最初の雲が消えかかる頃にふわっと表示 */
-  animation: fadeInLady 5s ease-out forwards;
-}
+
 
 .hero-content img {
   /* TeaFairyフォルダ内の画像名を指定 */
