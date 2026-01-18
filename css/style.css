@@ -1,31 +1,36 @@
-/* ===== HERO (お茶の楽園演出) ===== */
-
+/* 全体 */
 .hero {
   position: relative;
+  width: 100%;
   height: 100vh;
+  background-color: #e0f2f1;
   overflow: hidden;
-  /* 爽やかな新茶をイメージしたグラデーション背景 */
-  background: linear-gradient(to bottom, #f0fcf0, #eef4ea);
 }
 
-
-/* 雲の設定（assets/images/Cloud内にある画像を指定） */
-.cloud-intro, .cloud-static {
-  /* GitHub上で拡張子がない場合は url("../images/Cloud/Cloud") にしてください */
-  background-image: url("../images/Cloud/Cloud.png"); 
-  background-repeat: no-repeat;
-  background-size: contain;
+/* 女性（遠く） */
+.tea-fairy {
+  position: absolute;
+  bottom: 20%;
+  left: 50%;
+  transform: translateX(-50%) scale(0.6);
+  opacity: 0.8;
+  z-index: 1;
+  filter: blur(1px);
 }
 
-/* 女性の画像（中央に配置） */
-.hero-content img {
-  max-width: 500px;
-  width: 90%;
-  height: auto;
-  /* ゆらゆら揺れるアニメーション */
-  animation: gentleSway 6s ease-in-out infinite;
+/* 雲（手前） */
+.cloud {
+  position: absolute;
+  bottom: 0;
+  width: 120%;
+  left: -10%;
+  z-index: 3;
 }
-/* (以下、top-left, bottom-right の設定はそのまま) */
+
+.cloud-front {
+  opacity: 0.95;
+}
+
 
 /* 左上に30%ほどはみ出して配置 */
 .top-left {
