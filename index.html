@@ -1,15 +1,37 @@
 ---
 layout: home
 ---
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>Tea Paradise</title>
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+</head>
+<body>
 
-<section class="hero">
-  <div class="cloud-intro"></div>
-  <div class="cloud-static top-left"></div>
-  <div class="cloud-static bottom-right"></div>
+  <section class="hero">
+    <div class="cloud-intro"></div>
 
-  <div class="hero-content">
-    <img src="{{ '/assets/images/TeaFairy/Gemini_Generated_Image_tbbwfctbbwfctbbw.png' | relative_url }}" alt="お茶を楽しむ女性">
-    <h1>Welcome to Tea Paradise</h1>
-    <p>穏やかなお茶の時間へ</p>
-  </div>
-</section>
+    <div class="cloud-static top-left"></div>
+    <div class="cloud-static bottom-right"></div>
+
+    <div class="hero-content">
+      <img src="{{ '/assets/images/TeaFairy/Gemini_Generated_Image_tbbwfctbbwfctbbw.png' | relative_url }}" alt="お茶を楽しむ女性">
+      <h1>Welcome to Tea Paradise</h1>
+      <p>穏やかなお茶の時間へ</p>
+    </div>
+  </section>
+
+  <section class="news">
+    <h2>News</h2>
+    {% for post in site.posts %}
+    <article>
+      <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+      <p>{{ post.excerpt | strip_html | truncate: 100 }}</p>
+    </article>
+    {% endfor %}
+  </section>
+
+</body>
+</html>
