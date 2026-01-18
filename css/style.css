@@ -1,139 +1,85 @@
-/* 基本 */
-body {
-  margin: 0;
-  font-family: "Georgia", serif;
-  color: #333;
-  background: #fafafa;
-}
-
-h1, h2, h3 {
-  font-weight: normal;
-}
-
 /* ===== HERO ===== */
 
 .hero {
   position: relative;
   height: 100vh;
   overflow: hidden;
-  background: #eef4ea;
+  /* 背景を「朝霧の楽園」グラデーションに変更 */
+  background: linear-gradient(to bottom, #f0fcf0, #eef4ea);
 }
 
-.tea-clouds {
+/* 1. 最初に通過する巨大な雲 */
+.cloud-intro {
   position: absolute;
   inset: 0;
-  background: url("/images/tea-cloud.svg") repeat-x;
-  opacity: 0.45;
-  animation: cloudMove 80s linear infinite;
+  background: url("../assets/images/Cloud/your-cloud-filename.png") no-repeat center; /* 実際の雲のファイル名に！ */
+  background-size: contain;
+  z-index: 10;
+  width: 150%;
+  height: 150%;
+  top: -25%;
+  left: -25%;
+  animation: cloudPassThrough 3s forwards ease-in-out;
+  pointer-events: none;
 }
 
-@keyframes cloudMove {
-  from { background-position: 0 0; }
-  to   { background-position: -3000px 0; }
+/* 2. 左上（30%欠け）と右下（50%欠け）の固定雲 */
+.cloud-static {
+  position: absolute;
+  background: url("../assets/images/Cloud/your-cloud-filename.png") no-repeat;
+  background-size: contain;
+  opacity: 0.6;
+  z-index: 1; /* 女性より後ろ */
 }
 
+.top-left {
+  width: 40%;
+  height: 40%;
+  top: -10%;
+  left: -10%;
+  transform: rotate(-10deg);
+}
+
+.bottom-right {
+  width: 60%;
+  height: 60%;
+  bottom: -25%;
+  right: -25%;
+  transform: rotate(5deg);
+}
+
+/* アニメーション：巨大な雲が消える */
+@keyframes cloudPassThrough {
+  0% { transform: scale(1); opacity: 1; }
+  100% { transform: scale(4); opacity: 0; visibility: hidden; }
+}
+
+/* 3. 中央の女性（TeaFairy） */
 .hero-content {
   position: relative;
-  z-index: 2;
+  z-index: 2; /* 雲より手前 */
   text-align: center;
   top: 50%;
   transform: translateY(-50%);
+  /* 雲を抜けた後にふわっと現れる */
+  animation: fadeInLady 5s ease-out forwards;
 }
 
 .hero-content img {
-  max-width: 320px;
-  animation: float 6s ease-in-out infinite;
-}
-
-@keyframes float {
-  0%,100% { transform: translateY(0); }
-  50%     { transform: translateY(-12px); }
-}
-
-.hero h1 {
-  font-size: 3rem;
-  margin: 1rem 0 0.5rem;
-}
-
-.hero p {
-  font-size: 1.1rem;
-  color: #555;
-}
-
-/* ===== NEWS ===== */
-
-.news {
-  padding: 4rem 2rem;
-  background: #fff;
-}
-
-.news h2 {
-  text-align: center;
-  margin-bottom: 2rem;
-}
-
-.news ul {
-  max-width: 700px;
-  margin: 0 auto;
-  padding: 0;
-  list-style: none;
-}
-
-.news li {
-  display: flex;
-  justify-content: space-between;
-  padding: 0.8rem 0;
-  border-bottom: 1px solid #eee;
-}
-
-.news a {
-  text-decoration: none;
-  color: #2f5d3a;
-}
-
-.news .date {
-  color: #999;
-  font-size: 0.9rem;
-}
-
-/* ===== RECOMMENDED ===== */
-
-.recommend {
-  padding: 4rem 2rem;
-  background: #f4f7f3;
-}
-
-.recommend h2 {
-  text-align: center;
-  margin-bottom: 3rem;
-}
-
-.items {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 2rem;
-  max-width: 900px;
-  margin: 0 auto;
-}
-
-.item {
-  background: #fff;
-  padding: 1.5rem;
-  border-radius: 12px;
-  text-align: center;
-}
-
-.item img {
-  max-width: 100%;
+  max-width: 450px; /* 大陸の絵なので少し大きめに */
+  width: 90%;
   height: auto;
-  margin-bottom: 1rem;
+  /* 髪や服がなびくような微細な動き（既存のfloatを微調整） */
+  animation: gentleSway 6s ease-in-out infinite;
 }
 
-.item h3 {
-  margin-bottom: 0.5rem;
+@keyframes fadeInLady {
+  0% { opacity: 0; }
+  40% { opacity: 0; } /* 雲が通り過ぎるまで待つ */
+  100% { opacity: 1; }
 }
 
-.item p {
-  font-size: 0.95rem;
-  color: #555;
+@keyframes gentleSway {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-15px) rotate(1deg); }
 }
