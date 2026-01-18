@@ -16,4 +16,4 @@ or during a quiet moment alone.
 
 This article introduces how Japanese people
 enjoy tea in their daily lives.
-<img src="assets/images/TeaFairy" alt="お茶を楽しむ女性">
+<img src="assets/images/Gemini_Generated_Image_fk8wj8fk8wj8fk8w.png" alt="お茶を楽しむ女性">
