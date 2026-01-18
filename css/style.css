@@ -1,85 +1,90 @@
-/* ===== HERO ===== */
+/* ===== HERO (お茶の楽園演出) ===== */
 
 .hero {
   position: relative;
   height: 100vh;
   overflow: hidden;
-  /* 背景を「朝霧の楽園」グラデーションに変更 */
+  /* 爽やかな新茶をイメージしたグラデーション背景 */
   background: linear-gradient(to bottom, #f0fcf0, #eef4ea);
 }
 
-/* 1. 最初に通過する巨大な雲 */
+/* 1. 最初に画面を覆い、突き抜けていく巨大な雲 */
 .cloud-intro {
   position: absolute;
-  inset: 0;
-  background: url("../assets/images/Cloud/your-cloud-filename.png") no-repeat center; /* 実際の雲のファイル名に！ */
+  /* ファイル名とパスをCloudフォルダに合わせて指定 */
+  background: url("../assets/images/Cloud/Cloud.png") no-repeat center; 
   background-size: contain;
-  z-index: 10;
+  z-index: 10; /* 最前面 */
   width: 150%;
   height: 150%;
   top: -25%;
   left: -25%;
-  animation: cloudPassThrough 3s forwards ease-in-out;
-  pointer-events: none;
+  animation: cloudPassThrough 3.5s forwards ease-in-out;
+  pointer-events: none; /* 下のボタンなどを押せるようにする */
 }
 
-/* 2. 左上（30%欠け）と右下（50%欠け）の固定雲 */
+/* 2. 背景に配置される固定の雲（左上と右下） */
 .cloud-static {
   position: absolute;
-  background: url("../assets/images/Cloud/your-cloud-filename.png") no-repeat;
+  background: url("../assets/images/Cloud/Cloud.png") no-repeat;
   background-size: contain;
   opacity: 0.6;
-  z-index: 1; /* 女性より後ろ */
+  z-index: 1; /* 女性の画像より後ろ */
 }
 
+/* 左上に30%ほどはみ出して配置 */
 .top-left {
-  width: 40%;
-  height: 40%;
-  top: -10%;
-  left: -10%;
+  width: 45%;
+  height: 45%;
+  top: -15%;
+  left: -15%;
   transform: rotate(-10deg);
 }
 
+/* 右下に50%ほどはみ出して配置 */
 .bottom-right {
-  width: 60%;
-  height: 60%;
-  bottom: -25%;
-  right: -25%;
+  width: 65%;
+  height: 65%;
+  bottom: -30%;
+  right: -30%;
   transform: rotate(5deg);
 }
 
-/* アニメーション：巨大な雲が消える */
+/* アニメーション：巨大な雲が手前に迫って消える */
 @keyframes cloudPassThrough {
   0% { transform: scale(1); opacity: 1; }
-  100% { transform: scale(4); opacity: 0; visibility: hidden; }
+  100% { transform: scale(5); opacity: 0; visibility: hidden; }
 }
 
-/* 3. 中央の女性（TeaFairy） */
+/* 3. 中央の女性（お茶の楽園・大陸） */
 .hero-content {
   position: relative;
-  z-index: 2; /* 雲より手前 */
+  z-index: 2; /* 静止した雲より手前 */
   text-align: center;
   top: 50%;
   transform: translateY(-50%);
-  /* 雲を抜けた後にふわっと現れる */
+  /* 最初の雲が消えかかる頃にふわっと表示 */
   animation: fadeInLady 5s ease-out forwards;
 }
 
 .hero-content img {
-  max-width: 450px; /* 大陸の絵なので少し大きめに */
+  /* TeaFairyフォルダ内の画像名を指定 */
+  max-width: 500px;
   width: 90%;
   height: auto;
-  /* 髪や服がなびくような微細な動き（既存のfloatを微調整） */
+  /* 髪や服がなびくような、ゆったりした上下の揺れ */
   animation: gentleSway 6s ease-in-out infinite;
+  /* 画像の縁を少し柔らかく見せる（お好みで） */
+  filter: drop-shadow(0 0 15px rgba(255,255,255,0.5));
 }
 
 @keyframes fadeInLady {
-  0% { opacity: 0; }
-  40% { opacity: 0; } /* 雲が通り過ぎるまで待つ */
-  100% { opacity: 1; }
+  0% { opacity: 0; transform: translateY(-50%) scale(0.95); }
+  40% { opacity: 0; } /* 雲の演出を待つ時間 */
+  100% { opacity: 1; transform: translateY(-50%) scale(1); }
 }
 
 @keyframes gentleSway {
   0%, 100% { transform: translateY(0) rotate(0deg); }
-  50% { transform: translateY(-15px) rotate(1deg); }
+  50% { transform: translateY(-15px) rotate(1.5deg); }
 }
