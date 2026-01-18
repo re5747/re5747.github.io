@@ -1,16 +1,38 @@
 ---
 layout: home
 ---
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/style.css">
+</head>
+<body>
 
-<section class="hero">
-  <div class="cloud-intro"></div>
+  <section class="hero">
+    <div class="cloud-intro"></div>
 
-  <div class="cloud-static top-left"></div>
-  <div class="cloud-static bottom-right"></div>
+    <div class="cloud-static top-left"></div>
+    <div class="cloud-static bottom-right"></div>
 
-  <div class="hero-content">
-    <img src="{{ site.baseurl }}/assets/images/TeaFairy/your-lady-filename.png" alt="Tea Paradise">
-    <h1>Welcome to Tea Paradise</h1>
-    <p>穏やかなお茶の時間へ</p>
-  </div>
-</section>
+    <div class="hero-content">
+      <img src="{{ site.baseurl }}/assets/images/TeaFairy/Gemini_Generated_Image_tbbwfctbbwfctbbw.png" alt="お茶の楽園の女性">
+      <h1>Welcome to Tea Paradise</h1>
+      <p>穏やかなお茶の時間へ</p>
+    </div>
+  </section>
+
+  <section class="news">
+    <h2>News</h2>
+    <ul>
+      {% for post in site.posts %}
+      <li>
+        <span class="date">{{ post.date | date: "%Y.%m.%d" }}</span>
+        <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
+      </li>
+      {% endfor %}
+    </ul>
+  </section>
+
+</body>
+</html>
