@@ -10,28 +10,8 @@ layout: home
 </head>
 <body>
 
-  <section class="hero">
-    <div class="cloud-intro"></div>
-
-    <div class="cloud-static top-left"></div>
-    <div class="cloud-static bottom-right"></div>
-
-    <div class="hero-content">
+ 
       <img src="{{ 'https://github.com/re5747/re5747.github.io/assets/images/TeaFairy' | relative_url }}" alt="お茶を楽しむ女性">
-      <h1>Welcome to Tea Paradise</h1>
-      <p>穏やかなお茶の時間へ</p>
-    </div>
-  </section>
-
-  <section class="news">
-    <h2>News</h2>
-    {% for post in site.posts %}
-    <article>
-      <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
-      <p>{{ post.excerpt | strip_html | truncate: 100 }}</p>
-    </article>
-    {% endfor %}
-  </section>
-
+      
 </body>
 </html>
