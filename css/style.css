@@ -8,29 +8,32 @@
   background: linear-gradient(to bottom, #f0fcf0, #eef4ea);
 }
 
-/* 1. 最初に画面を覆い、突き抜けていく巨大な雲 */
+
+/* 1. 最初に通過する巨大な雲 */
 .cloud-intro {
   position: absolute;
-  /* ファイル名とパスをCloudフォルダに合わせて指定 */
-  background: url("../assets/images/Cloud/Cloud.png") no-repeat center; 
+  inset: 0;
+  /* 拡張子がない場合はファイル名のみ指定 */
+  background: url("../images/Cloud/Cloud") no-repeat center; 
   background-size: contain;
-  z-index: 10; /* 最前面 */
+  z-index: 10;
   width: 150%;
   height: 150%;
   top: -25%;
   left: -25%;
   animation: cloudPassThrough 3.5s forwards ease-in-out;
-  pointer-events: none; /* 下のボタンなどを押せるようにする */
+  pointer-events: none;
 }
 
-/* 2. 背景に配置される固定の雲（左上と右下） */
+/* 2. 背景に固定される雲 */
 .cloud-static {
   position: absolute;
-  background: url("../assets/images/Cloud/Cloud.png") no-repeat;
+  background: url("../images/Cloud/Cloud") no-repeat;
   background-size: contain;
   opacity: 0.6;
-  z-index: 1; /* 女性の画像より後ろ */
+  z-index: 1;
 }
+/* (以下、top-left, bottom-right の設定はそのまま) */
 
 /* 左上に30%ほどはみ出して配置 */
 .top-left {
