@@ -1,57 +1,41 @@
-/* ページ全体の余白リセット */
-body {
-  margin: 0;
-}
-
-/* ヒーローセクション */
-.hero {
-  position: relative;   /* 絶対配置の基準 */
-  height: 100vh;        /* 画面全体 */
-  overflow: hidden;
-}
-
-/* 背景：エメラルドグリーンの空 */
+/* 背景 */
 .sky {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    to bottom,
-    #6ee7d8 0%,
-    #3bbfa7 60%,
-    #1f8f85 100%
-  );
-  z-index: 0;
+  background: linear-gradient(to bottom, #6ee7d8, #3bbfa7, #1f8f85);
+  z-index: 0; /* 一番奥 */
 }
 
-/* 白い霧 */
+/* 霧 */
 .fog {
   position: absolute;
   inset: -30%;
   background: white;
   filter: blur(10px);
-  z-index: 3;
+  z-index: 3; /* 妖精より下にする場合は調整 */
   transition: transform 2.5s ease, opacity 2.5s ease;
 }
 
-body.enter-sky .fog {
-  transform: scale(1.6);
-  opacity: 0;
-}
-
-/* 妖精（小さく上の方） */
+/* 妖精 */
 .tea-fairy {
   position: absolute;
-  top: 10vh;               /* 画面上から10% */
+  top: 10vh;
   left: 50%;
   transform: translateX(-50%);
-  width: 70px;             /* 小さめ */
-  z-index: 4;              /* 霧より前に表示 */
+  width: 70px;
+  z-index: 4; /* 霧の上に表示 */
   opacity: 0;
   animation: fairy-appear 1.5s ease forwards;
   animation-delay: 2s;
 }
 
-/* 妖精アニメーション */
+/* 霧が消えるアニメーション */
+body.enter-sky .fog {
+  transform: scale(1.6);
+  opacity: 0;
+}
+
+/* 妖精が出るアニメーション */
 @keyframes fairy-appear {
   to {
     opacity: 0.7;
