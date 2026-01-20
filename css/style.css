@@ -1,13 +1,19 @@
+
 body {
   margin: 0;
 }
 
-/* 全画面 */
 .hero {
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  overflow: hidden;
+  animation: camera-push 2.5s ease forwards;
+}
+
+@keyframes camera-push {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.08);
+  }
 }
 
 /* エメラルドグリーン背景 */
