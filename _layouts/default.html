@@ -1,17 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
   <meta charset="UTF-8">
   <title>{{ page.title }}</title>
-  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="{{ '/assets/css/home.css' | relative_url }}">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 
-  {% include header.html %}
+  <!-- ヘッダー -->
+  <header class="site-header">
+    <div class="logo">🍵 Tea World</div>
+    <nav class="nav">
+      <a href="{{ '/' | relative_url }}">Home</a>
+      <a href="{{ '/products' | relative_url }}">商品</a>
+      <a href="{{ '/about' | relative_url }}">About</a>
+      <a href="{{ '/contact' | relative_url }}">お問い合わせ</a>
+    </nav>
+  </header>
 
-  {{ content }}
+  <!-- ページコンテンツ -->
+  <main class="site-content">
+    {{ content }}
+  </main>
 
-  {% include footer.html %}
+  <!-- フッター -->
+  <footer class="site-footer">
+    <p>&copy; 2026 Tea World. All Rights Reserved.</p>
+  </footer>
 
 </body>
 </html>
