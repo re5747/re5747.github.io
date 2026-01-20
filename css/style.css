@@ -110,6 +110,11 @@ body {
   background-color: #98514B; /* 背景色は任意 */
   color:#ffffff;
 }
+.section3 {
+  padding: 40px 20px;
+  background-color: #e0f2f1; /* 背景色は任意 */
+  color:#000000;
+}
 
 .image-row {
   display: flex;               /* 横並びにする */
