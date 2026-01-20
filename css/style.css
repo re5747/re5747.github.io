@@ -108,3 +108,36 @@ body {
   color: #d2b48c;
   text-decoration: underline;
 }
+
+
+.section2 {
+  padding: 40px 20px;
+  background-color: #f5f5f5; /* 背景色は任意 */
+}
+
+.image-row {
+  display: flex;               /* 横並びにする */
+  justify-content: space-between; /* 画像カード間を均等に配置 */
+  gap: 20px;                   /* カード間の余白 */
+  flex-wrap: wrap;             /* 画面幅が狭いときは折り返す */
+}
+
+.card {
+  flex: 1;                     /* カードを均等に広げる */
+  max-width: 30%;              /* 3枚横並び用 */
+  text-align: center;          /* 説明文を中央揃え */
+}
+
+.card img {
+  width: 100%;                 /* カード幅に合わせる */
+  height: auto;
+  display: block;
+  border-radius: 8px;          /* optional */
+  margin-bottom: 10px;         /* 画像と説明文の間隔 */
+}
+
+.card p {
+  font-size: 14px;
+  color: #333;
+  line-height: 1.4;
+}
