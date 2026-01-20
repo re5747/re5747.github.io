@@ -4,17 +4,28 @@ body {
 }
 
 .hero {
-  animation: camera-push 2.5s ease forwards;
+  transform: scale(1.15);
+  transition: transform 3s ease;
 }
 
-@keyframes camera-push {
-  from {
-    transform: scale(1);
-  }
-  to {
-    transform: scale(1.08);
-  }
+body.enter-sky .hero {
+  transform: scale(1);
 }
+
+/* 霧 */
+.fog {
+  position: absolute;
+  inset: -30%;
+  background: white;
+  filter: blur(10px);
+  transition: transform 2.5s ease, opacity 2.5s ease;
+}
+
+body.enter-sky .fog {
+  transform: scale(1.6);
+  opacity: 0;
+}
+
 
 /* エメラルドグリーン背景 */
 .sky {
@@ -29,14 +40,6 @@ body {
   z-index: 0;
 }
 
-/* 白い霧 */
-.fog {
-  position: absolute;
-  inset: 0;
-  background: white;
-  z-index: 5;
-  animation: fog-fade 2.5s ease forwards;
-}
 
 /* 霧が消える */
 @keyframes fog-fade {
