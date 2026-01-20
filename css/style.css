@@ -4,17 +4,22 @@ body {
 }
 
 .hero {
-  position: relative;
-  height: 100vh;
+  position: relative; /* 必須 */
+  height: 100vh;      /* 画面全体の高さ */
 }
 
 .tea-fairy {
   position: absolute;
-  top: 10vh;   /* ← % ではなく vh */
+  top: 10vh;          /* %より vh の方が安定 */
   left: 50%;
-  width: 70px;
   transform: translateX(-50%);
+  width: 70px;
+  z-index: 4;         /* 霧より前に表示 */
+  opacity: 0;
+  animation: fairy-appear 1.5s ease forwards;
+  animation-delay: 2s;
 }
+
 
 /* 霧 */
 .fog {
