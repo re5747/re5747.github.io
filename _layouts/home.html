@@ -7,44 +7,20 @@
 </head>
 <body>
 
-<!-- ヒーロー -->
 <section class="hero">
-  <!-- 空 -->
+  <!-- エメラルドグリーンの空 -->
   <div class="sky"></div>
 
-  <!-- 雲レイヤー -->
-  <div class="cloud-layer" id="cloudLayer"></div>
+  <!-- 白い霧（最初に見える） -->
+  <div class="fog"></div>
 
-  <!-- お茶の妖精 -->
+  <!-- 妖精（小さく） -->
   <img
     src="{{ "/assets/images/TeaFairy.png" | relative_url }}"
     alt="お茶の妖精"
     class="tea-fairy"
   >
 </section>
-
-<!-- ニュース -->
-<section class="news">
-  <h2>News</h2>
-  {% for post in site.posts limit:5 %}
-    <article>
-      <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
-      <p>{{ post.excerpt }}</p>
-    </article>
-  {% endfor %}
-</section>
-
-<!-- おすすめ商品 -->
-<section class="products">
-  <h2>おすすめ商品</h2>
-  <div class="product-card">
-    <img src="{{ "/assets/images/product-placeholder.png" | relative_url }}">
-    <p>商品説明（仮）</p>
-  </div>
-</section>
-
-<!-- JS -->
-<script src="{{ "/assets/js/home.js" | relative_url }}"></script>
 
 </body>
 </html>
