@@ -1,6 +1,6 @@
 .hero {
   position: relative;
-  height: 100vh;      /* 画面全体の高さ */
+  height: 50vh;      /* 画面全体の高さ */
   overflow: hidden;
 }
 
