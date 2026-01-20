@@ -1,9 +1,8 @@
-/* リセット */
 body {
   margin: 0;
 }
 
-/* ヒーロー全体 */
+/* 全画面 */
 .hero {
   position: relative;
   width: 100%;
@@ -11,7 +10,7 @@ body {
   overflow: hidden;
 }
 
-/* エメラルドグリーンの空 */
+/* エメラルドグリーン背景 */
 .sky {
   position: absolute;
   inset: 0;
@@ -24,106 +23,41 @@ body {
   z-index: 0;
 }
 
-/* 雲 */
-.cloud-layer {
+/* 白い霧 */
+.fog {
   position: absolute;
   inset: 0;
-  z-index: 2;
-}
-
-.cloud {
-  position: absolute;
-  left: -50%;
-  background: url("../images/cloud.png") no-repeat center / contain;
-  opacity: 0.9;
-  animation: cloud-move linear infinite;
-}
-
-@keyframes cloud-move {
-  from {
-    transform: translateX(-150%);
-  }
-  to {
-    transform: translateX(150%);
-  }
-}
-
-.tea-fairy {
-  position: absolute;
-  bottom: 18%;
-  left: 50%;
-  width: 80px;   /* ← 小さくする */
-  transform: translateX(-50%);
+  background: white;
   z-index: 5;
-  opacity: 0;
-  animation:
-    fairy-fade 2s ease forwards,
-    fairy-float 4s ease-in-out infinite;
-  animation-delay: 1.5s;
+  animation: fog-fade 2.5s ease forwards;
 }
 
-
-@keyframes fairy-fade {
-  to {
+/* 霧が消える */
+@keyframes fog-fade {
+  0% {
     opacity: 1;
   }
-}
-
-@keyframes fairy-float {
-  0%, 100% {
-    transform: translate(-50%, 0);
-  }
-  50% {
-    transform: translate(-50%, -20px);
+  100% {
+    opacity: 0;
+    visibility: hidden;
   }
 }
 
-
-
-/* 左上に30%ほどはみ出して配置 */
-.top-left {
-  width: 45%;
-  height: 45%;
-  top: -15%;
-  left: -15%;
-  transform: rotate(-10deg);
+/* 妖精（かなり小さい） */
+.tea-fairy {
+  position: absolute;
+  left: 50%;
+  bottom: 35%;
+  width: 70px;
+  transform: translateX(-50%);
+  z-index: 2;
+  opacity: 0;
+  animation: fairy-appear 1.5s ease forwards;
+  animation-delay: 2s;
 }
 
-/* 右下に50%ほどはみ出して配置 */
-.bottom-right {
-  width: 65%;
-  height: 65%;
-  bottom: -30%;
-  right: -30%;
-  transform: rotate(5deg);
-}
-
-/* アニメーション：巨大な雲が手前に迫って消える */
-@keyframes cloudPassThrough {
-  0% { transform: scale(1); opacity: 1; }
-  100% { transform: scale(5); opacity: 0; visibility: hidden; }
-}
-
-
-
-.hero-content img {
-  /* TeaFairyフォルダ内の画像名を指定 */
-  max-width: 500px;
-  width: 90%;
-  height: auto;
-  /* 髪や服がなびくような、ゆったりした上下の揺れ */
-  animation: gentleSway 6s ease-in-out infinite;
-  /* 画像の縁を少し柔らかく見せる（お好みで） */
-  filter: drop-shadow(0 0 15px rgba(255,255,255,0.5));
-}
-
-@keyframes fadeInLady {
-  0% { opacity: 0; transform: translateY(-50%) scale(0.95); }
-  40% { opacity: 0; } /* 雲の演出を待つ時間 */
-  100% { opacity: 1; transform: translateY(-50%) scale(1); }
-}
-
-@keyframes gentleSway {
-  0%, 100% { transform: translateY(0) rotate(0deg); }
-  50% { transform: translateY(-15px) rotate(1.5deg); }
+@keyframes fairy-appear {
+  to {
+    opacity: 0.7;
+  }
 }
