@@ -112,6 +112,9 @@ body {
   background-color: #98514B; /* 背景色は任意 */
   color:#ffffff;
 }
+.card{
+  color:#ffffff;
+}
 .section3 {
   padding: 20px;
   background-color: #e0f2f1; /* 背景色は任意 */
