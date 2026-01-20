@@ -48,12 +48,11 @@ body {
   }
 }
 
-/* お茶の妖精 */
 .tea-fairy {
   position: absolute;
-  bottom: 10%;
+  bottom: 18%;
   left: 50%;
-  width: 280px;
+  width: 80px;   /* ← 小さくする */
   transform: translateX(-50%);
   z-index: 5;
   opacity: 0;
@@ -62,6 +61,7 @@ body {
     fairy-float 4s ease-in-out infinite;
   animation-delay: 1.5s;
 }
+
 
 @keyframes fairy-fade {
   to {
