@@ -10,12 +10,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(
-    to bottom,
-    #d2b48c 0%,   /* 上：明るい茶色（タン） */
-    #b8860b 50%,  /* 中間：濃いめの茶色（ダークタン） */
-    #8b4513 100%  /* 下：深い茶色（サドルブラウン） */
-  );
+  background: #8b4513;
   z-index: 0;
 }
 
