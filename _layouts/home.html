@@ -2,10 +2,25 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
+  <title>お茶のサイト</title>
+  <link rel="stylesheet" href="{{ '/assets/css/home.css' | relative_url }}">
+</head>
+<body>
+
+  <!-- ヘッダー -->
+  <header class="site-header">
+    <div class="logo">🍵 Tea World</div>
+    <nav class="nav">
+      <a href="#hero">Home</a>
+      <a href="#section2">商品</a>
+      <a href="#section3">おすすめ</a>
+      <a href="#contact">お問い合わせ</a>
+    </nav>
+  </header>
+  <meta charset="UTF-8">
   <title>エメラルドグリーンの空</title>
   <link rel="stylesheet" href="{{ "/css/style.css" | relative_url }}">
 </head>
-<body>
 
 <section class="hero">
   <!-- エメラルドグリーンの空 -->
@@ -21,7 +36,44 @@
     class="tea-fairy"
   >
 </section>
+<section class="section2">
+  <div class="image-row">
+    <div class="card">
+      <img src="{{ '/assets/images/product1.png' | relative_url }}" alt="商品1">
+      <p>商品1の説明文（ここに詳細を書きます）</p>
+    </div>
+    <div class="card">
+      <img src="{{ '/assets/images/product2.png' | relative_url }}" alt="商品2">
+      <p>商品2の説明文（ここに詳細を書きます）</p>
+    </div>
+    <div class="card">
+      <img src="{{ '/assets/images/product3.png' | relative_url }}" alt="商品3">
+      <p>商品3の説明文（ここに詳細を書きます）</p>
+    </div>
+  </div>
+</section>
 
+<section class="section3">
+  <div class="vertical-card">
+    <img src="{{ '/assets/images/product1.png' | relative_url }}" alt="商品1">
+    <p>商品1の説明文（ここに詳細を書きます）</p>
+  </div>
+
+  <div class="vertical-card">
+    <img src="{{ '/assets/images/product2.png' | relative_url }}" alt="商品2">
+    <p>商品2の説明文（ここに詳細を書きます）</p>
+  </div>
+
+  <div class="vertical-card">
+    <img src="{{ '/assets/images/product3.png' | relative_url }}" alt="商品3">
+    <p>商品3の説明文（ここに詳細を書きます）</p>
+  </div>
+</section>
+
+  <footer class="site-footer" id="contact">
+    <p>&copy; 2026 Tea World. All Rights Reserved.</p>
+    <p>お問い合わせ: <a href="mailto:info@teaworld.com">info@teaworld.com</a></p>
+  </footer>
 <!-- JS 読み込み -->
 <script src="{{ "/assets/js/home.js" | relative_url }}"></script>
 </body>
