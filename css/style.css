@@ -1,10 +1,24 @@
-/* 背景 */
+.hero {
+  position: relative;
+  height: 100vh;      /* 画面全体の高さ */
+  overflow: hidden;
+}
+
 .sky {
   position: absolute;
-  inset: 0;
-  background: linear-gradient(to bottom, #6ee7d8, #3bbfa7, #1f8f85);
-  z-index: 0; /* 一番奥 */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    to bottom,
+    #6ee7d8 0%,   /* 明るいエメラルドグリーン */
+    #3bbfa7 60%,  /* 中間色 */
+    #1f8f85 100%  /* 深めのグリーン */
+  );
+  z-index: 0;       /* 一番奥 */
 }
+
 
 /* 霧 */
 .fog {
