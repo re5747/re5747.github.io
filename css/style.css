@@ -4,12 +4,16 @@ body {
 }
 
 .hero {
-  transform: scale(1.15);
-  transition: transform 3s ease;
+  position: relative;
+  height: 100vh;
 }
 
-body.enter-sky .hero {
-  transform: scale(1);
+.tea-fairy {
+  position: absolute;
+  top: 10vh;   /* ← % ではなく vh */
+  left: 50%;
+  width: 70px;
+  transform: translateX(-50%);
 }
 
 /* 霧 */
@@ -52,18 +56,7 @@ body.enter-sky .fog {
   }
 }
 
-/* 妖精（かなり小さい） */
-.tea-fairy {
-  position: absolute;
-  left: 50%;
-  top: 10%;
-  width: 70px;
-  transform: translateX(-50%);
-  z-index: 2;
-  opacity: 0;
-  animation: fairy-appear 1.5s ease forwards;
-  animation-delay: 2s;
-}
+
 
 @keyframes fairy-appear {
   to {
