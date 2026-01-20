@@ -74,6 +74,13 @@
     <p>&copy; 2026 Tea World. All Rights Reserved.</p>
   </footer>
 <!-- JS 読み込み -->
-<script src="{{ "/assets/js/home.js" | relative_url }}"></script>
+<!-- </body> の直前に置く -->
+<script>
+window.addEventListener("load", () => {
+  document.body.classList.add("enter-sky");
+});
+</script>
+</body>
+
 </body>
 </html>
